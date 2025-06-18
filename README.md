@@ -74,30 +74,8 @@ MongoDB	            localhost:27017
 
 🗂 Project Structure
 
-flask-notes-app/
-├── backend/
-│   ├── app/
-│   │   ├── models/         # User & Note models
-│   │   ├── routes/         # User, Note, Auth routes
-│   │   ├── utils/          # MongoDB utils
-│   │   ├── config.py
-│   │   └── __init__.py     # App factory
-│   ├── run.py              # App entry point
-│   ├── requirements.txt
-│   ├── Dockerfile
-│   └── .env
-├── frontend/
-│   ├── src/
-│   │   ├── components/     # React components (Forms, Modals, Lists)
-│   │   ├── api/            # Axios-based API
-│   │   ├── App.jsx
-│   │   └── main.jsx
-│   ├── public/
-│   ├── Dockerfile
-│   ├── package.json
-│   └── .env
-├── docker-compose.yml
-└── README.md
+![alt text](<Screenshot 2025-06-18 203017.png>)
+![alt text](<Screenshot 2025-06-18 203042.png>)
 
 
 📡 API Endpoints

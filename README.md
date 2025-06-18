@@ -1,63 +1,55 @@
-Flask Notes App with User CRUD API + React Frontend
-A full-stack Notes application with Flask backend, MongoDB database, and React frontend, featuring user authentication, CRUD operations, and modern containerized deployment.
 
-Features
-Complete User Management: Create, read, update, delete users with authentication
+📝 Flask Notes App (Full Stack)
+A full-stack Notes application with Flask backend, MongoDB database, and React frontend. It features secure user authentication, full CRUD operations for notes, and a modern containerized setup using Docker.
 
-Notes System: Full CRUD operations for user notes
+🚀 Features:
 
-Session-based Authentication: Secure login/logout functionality
+✅ User Management: Create, read, update, delete users
 
-Password Security: Bcrypt hashing for secure password storage
+🔐 Authentication: Secure session-based login/logout
 
-Input Validation: Server-side validation with proper error handling
+📝 Notes System: CRUD operations for user-specific notes
 
-Responsive Design: Modern monochrome UI that works on all devices
+🔒 Password Security: Bcrypt hashing
 
-RESTful API: Clean REST endpoints for all operations
+🛡️ Input Validation: Proper server-side validation and error handling
 
-Docker Support: Fully containerized application with hot reload
+💻 Responsive UI: Monochrome theme, mobile-first design
 
-MongoDB Integration: NoSQL database with proper connection handling
+🧪 REST API: Clean RESTful endpoints
 
-Tech Stack
-Backend: Flask (Python), PyMongo, Bcrypt
-Database: MongoDB
-Frontend: React (Vite), Axios
-Authentication: Flask Sessions
-Containerization: Docker + Docker Compose
-API Format: REST
+🐳 Dockerized: Hot reload support with Docker & Docker Compose
 
-Prerequisites
-Before you begin, ensure you have the following installed:
+🗃️ MongoDB Integration: NoSQL backend with proper connection handling
 
-Docker Desktop (latest version)
+🛠 Tech Stack
 
-Docker Compose (usually included with Docker Desktop)
+Layer	        Technology
+Frontend	    React (Vite), Axios
+Backend	        Flask, Flask-Sessions, PyMongo, Bcrypt
+Database	    MongoDB
+Auth	        Session-based authentication
+DevOps	        Docker, Docker Compose
+API	            REST
 
-Git (for cloning the repository)
+⚙️ Prerequisites
 
-Web Browser (Chrome, Firefox, Safari, Edge)
+Docker Desktop (latest)
+Git
+Web Browser (Chrome, Firefox, etc.)
+Recommended: 8GB RAM, 2GB free space, Windows 10+/macOS 10.14+/Ubuntu 18.04+
 
-System Requirements:
+🧑‍💻 Quick Start
 
-RAM: Minimum 4GB (8GB recommended)
-
-Storage: At least 2GB free space
-
-OS: Windows 10+, macOS 10.14+, or Linux (Ubuntu 18.04+)
-
-Quick Start
 1. Clone the Repository
 
-text
 git clone <your-repository-url>
 cd flask-notes-app
-2. Environment Setup
 
-Create backend/.env:
+2. Setup Environment Variables
 
-text
+backend/.env
+
 MONGODB_URI=mongodb://mongodb:27017/notes_app
 FLASK_ENV=development
 FLASK_DEBUG=True
@@ -65,104 +57,80 @@ SECRET_KEY=your-secret-key-change-this-in-production
 PORT=5000
 LOG_LEVEL=INFO
 HIDE_AUTH_401=True
-Create frontend/.env:
+frontend/.env
 
-text
 VITE_API_URL=http://localhost:5000
-3. Start the Application
 
-text
+3. Start the App
+
 docker-compose up --build
-4. Access the Application
 
-Frontend (React App): http://localhost:3000
+🌐 Access URLs
 
-Backend API: http://localhost:5000
+Service	            URL
+Frontend (React)	http://localhost:3000
+Backend (Flask)	    http://localhost:5000
+MongoDB	            localhost:27017
 
-MongoDB: localhost:27017
+🗂 Project Structure
 
-Project Structure
-text
 flask-notes-app/
-├── backend/                    # Flask API server
+├── backend/
 │   ├── app/
-│   │   ├── __init__.py        # Flask app factory
-│   │   ├── config.py          # Configuration settings
-│   │   ├── models/            # Data models
-│   │   │   ├── __init__.py
-│   │   │   ├── user.py        # User model with authentication
-│   │   │   └── note.py        # Note model
-│   │   ├── routes/            # API endpoints
-│   │   │   ├── __init__.py
-│   │   │   ├── users.py       # User CRUD endpoints
-│   │   │   ├── notes.py       # Notes CRUD endpoints
-│   │   │   └── auth.py        # Authentication endpoints
-│   │   └── utils/             # Utility functions
-│   │       ├── __init__.py
-│   │       └── database.py    # MongoDB connection
-│   ├── requirements.txt       # Python dependencies
-│   ├── Dockerfile            # Backend container config
-│   ├── .env                  # Backend environment variables
-│   └── run.py                # Application entry point
-├── frontend/                  # React application
+│   │   ├── models/         # User & Note models
+│   │   ├── routes/         # User, Note, Auth routes
+│   │   ├── utils/          # MongoDB utils
+│   │   ├── config.py
+│   │   └── __init__.py     # App factory
+│   ├── run.py              # App entry point
+│   ├── requirements.txt
+│   ├── Dockerfile
+│   └── .env
+├── frontend/
 │   ├── src/
-│   │   ├── components/        # React components
-│   │   │   ├── UserForm.jsx
-│   │   │   ├── UsersList.jsx
-│   │   │   ├── NotesList.jsx
-│   │   │   ├── AddNoteForm.jsx
-│   │   │   ├── LoginModal.jsx
-│   │   │   ├── PasswordModal.jsx
-│   │   │   └── EditProfileModal.jsx
-│   │   ├── api/              # API integration
-│   │   │   └── api.js
-│   │   ├── App.jsx           # Main application component
-│   │   ├── App.css           # Application styles
-│   │   └── main.jsx          # React entry point
+│   │   ├── components/     # React components (Forms, Modals, Lists)
+│   │   ├── api/            # Axios-based API
+│   │   ├── App.jsx
+│   │   └── main.jsx
 │   ├── public/
-│   │   └── index.html
-│   ├── package.json          # Node.js dependencies
-│   ├── vite.config.js        # Vite configuration
-│   ├── Dockerfile           # Frontend container config
-│   └── .env                 # Frontend environment variables
-├── docker-compose.yml        # Multi-container orchestration
-├── .gitignore               # Git ignore rules
-└── README.md                # This file
-API Endpoints
-User Management
+│   ├── Dockerfile
+│   ├── package.json
+│   └── .env
+├── docker-compose.yml
+└── README.md
 
-GET /users - Get all users
 
-GET /users/<id> - Get user by ID
+📡 API Endpoints
 
-POST /users - Create new user (requires: name, email, password)
+👤 User Management
+Method	    Endpoint	    Description
+GET	        /users	        Get all users
+GET	        /users/<id>	    Get user by ID
+POST	    /users	        Create user
+PUT	        /users/<id>	    Update user
+DELETE	    /users/<id>	    Delete user
 
-PUT /users/<id> - Update user (accepts: name, email)
+🗒 Notes Management
+Method	    Endpoint	                        Description
+GET	        /users/<id>/notes	                Get notes of a user
+POST	    /users/<id>/notes	                Create a new note
+PUT	        /users/<id>/notes/<note_id>	        Update note
+DELETE	    /users/<id>/notes/<note_id>	        Delete note
 
-DELETE /users/<id> - Delete user
+🔐 Authentication
+Method	    Endpoint	                Description
+POST	    /login	                    Login with email/password
+POST	    /login-with-password	    Login with ID/password
+POST	    /logout	                    Logout current user
+GET	        /current-user	            Get logged-in user details
+POST	    /verify-password	        Verify user password
 
-Notes Management
+🩺 Health Check
+Method	Endpoint	Description
+GET	    /health	    Check API health
 
-GET /users/<id>/notes - Get all notes for user
-
-POST /users/<id>/notes - Create note for user (requires: title, content)
-
-PUT /users/<id>/notes/<note_id> - Update note (accepts: title, content)
-
-DELETE /users/<id>/notes/<note_id> - Delete note
-
-Authentication
-
-POST /login - Login with email/password
-
-POST /login-with-password - Login with user ID/password
-
-POST /logout - Logout current user
-
-GET /current-user - Get current logged-in user
-
-POST /verify-password - Verify user password
-
-Health Check
-
-GET /health - API health status
+📦 Docker Commands
+Build and Run (with hot reload) -
+    docker-compose up --build
+Stop -
+    docker-compose down
